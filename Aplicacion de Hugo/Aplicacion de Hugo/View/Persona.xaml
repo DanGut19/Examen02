@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:Aplicacion_de_Hugo.ViewModels"
+             mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
+             x:Class="Aplicacion_de_Hugo.View.ViewPersonasxaml"
+             IconImageSource="persona.png">
+
+    <ContentPage.BindingContext>
+        <vm:PersonaViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Image Source="https://sites.google.com/site/ceutecsap01/_/rsrc/1441668710669/ceutec-logo/cuetce.jpg"></Image>
+
+            <Label Text="Nombre"></Label>
+            <Entry Text="{Binding nombre}" Keyboard="Text"></Entry>
+
+            <Label Text="Fecha de Nacimiento"></Label>
+            <DatePicker Date="{Binding Fecha_Nacimiento}" ></DatePicker>
+
+            <Label Text="Genero"></Label>
+            <Picker SelectedItem="{Binding Genero}" Title="Seleccione Genero"
+                    TitleColor="Black">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Masculino</x:String>
+                        <x:String>Femenino</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Peso"></Label>
+            <Entry Text="{Binding Peso}" Keyboard="Numeric" ></Entry>
+
+            <Label Text="Altura"></Label>
+            <Entry Text="{Binding Altura}" Keyboard="Numeric" ></Entry>
+
+            <Button Text="Guardar" Command="{Binding CrearPersona}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
